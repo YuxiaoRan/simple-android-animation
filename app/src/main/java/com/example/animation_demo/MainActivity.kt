@@ -64,10 +64,19 @@ class MainActivity : AppCompatActivity() {
         badge.setOnClickListener {
             jumpToMediaPlayer()
         }
+
+        badge3.setOnClickListener {
+            jumpToAnimation()
+        }
     }
 
     private fun jumpToMediaPlayer() {
         val i: Intent = Intent(this, MediaPlayerActivity::class.java)
         startActivity(i)
+    }
+
+    private fun jumpToAnimation() {
+        val j: Intent = Intent(this, AnimationActivity::class.java)
+        startActivity(j)
     }
 }

@@ -18,8 +18,8 @@ class AnimationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_animation)
 
         start.setOnClickListener {
-            validateTimeInput()
-            playAnimators()
+            if(validateTimeInput())
+                playAnimators()
         }
 
         stop.setOnClickListener {
@@ -27,11 +27,13 @@ class AnimationActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateTimeInput() {
+    private fun validateTimeInput(): Boolean {
         try {
             timeInput = time.text.toString().toLong()
+            return true
         } catch (e: Exception) {
             Toast.makeText(this, "Invalid time was input!", Toast.LENGTH_SHORT).show()
+            return false
         }
     }
 
